@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'harvest/style.css' %}">
+
+<div id="step-title-div" name="step-title-div">1. Upload harvest file</div>
+
+<div id="upload-border-div" name="upload-border-div">
+<form action="{% url "upload_csv" %}" method="POST" enctype="multipart/form-data"> 
+{% csrf_token %}
+
+<div class="form-group">
+<div class="upload-button-div">
+	<input type="file" name="csv_file" id="csv_file" accept=".csv" required="True" class="form-control">
+</div>                    
+
+<button id="upload-button">Upload </button>
+
+</div>
+</form>
+
+</div>
+</div>

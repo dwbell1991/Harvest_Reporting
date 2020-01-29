@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'harvest/style.css' %}">
+	
+	<!-- jQuery -->
+  	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+	<!-- Fengyuan Chen's datepicker -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<form action="{% url "results" %}" method="POST">
+	{% csrf_token %}
+	<div id="step-title-div">2. Select date range</div>
+	<div class="content-box">
+	<!-- Start date picker -->
+	<input name="start-date" id="start-date" placeholder="Start Date" required="true" autocomplete="on">
+	<!-- End date picker -->
+	<input name="end-date" id="end-date" placeholder="End Date" required="true" autocomplete="on">
+	</div>
+
+	<div id="step-title-div">3. Select by project code or name</div>
+	<div class="content-box">
+	<!-- Dropdown menu -->
+	<select name="project-type" id="project-type" type="text">
+		<!-- Project Codes -->
+		<optgroup label="By Code">
+		  <option value="INT">Internal</option>
+		  <option value="EXT">External</option>
+		  <option value="MNT">Maintenance</option>
+		</optgroup>
+
+		<!-- Individual project names populated from database -->
+		<optgroup label="By Project">
+		{% for project in projects %}
+			<option value="{{project.project_text}}">{{project.project_text}}
+		{% endfor %}
+		</optgroup>
+	</select>
+	</div>
+
+	<div id="step-title-div">4. Select categories to be calculated</div>
+	<div class="content-box">
+	<!-- Checkboxs -->
+	<div id ="checkbox-div" name="checkbox-div">
+	<input type="checkbox" name="hours-checkbox" id="hours-checkbox" checked="true" value="on">Total Hours<br>
+	<input type="checkbox" name="billable-checkbox" id="billable-checkbox" checked="true"  value="on">Total Billable Amount<br>
+	<input type="checkbox" name="cost-checkbox" id="cost-checkbox" checked="true" value="on">Total Cost Amount<br>
+	</div>
+	</div>
+
+	<!-- Submit button -->
+	<input type="submit" name="submit-form" value="Submit">
+</form>
+
+<script>
+    $(function () {
+	    $("#start-date").datepicker({
+		    format:"YYYY-MM-DD",
+	    });
+	    $("#end-date").datepicker({
+		    format:"YYYY-MM-DD",
+	    });
+    });
+</script>
+
+
+</body>
+</html>

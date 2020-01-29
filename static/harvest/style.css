@@ -1,0 +1,126 @@
+/*** Upload Page ***/
+#upload-border-div {
+	position: relative;
+	z-index: 0;
+	width: 600px;
+	border: 10px solid #353a40;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 6px #999999;
+	background-color: #e6e6e6;
+	text-align: center;
+}
+
+#csv_file {
+	padding: 5px;
+	margin-top: 10px;
+}
+
+#upload-button {
+	margin-top: 10px;
+	margin-left: 10px;
+	border: 3px solid #343a40;
+	border-radius: 5px;
+	background-color: white;
+	outline: none;
+	padding: 5px;
+	width: 268px;
+
+}
+
+#upload-button:hover {
+	background-color: #343a40;
+	color: white;
+	cursor: pointer;
+}
+
+/*** Search Page ***/
+#step-title-div {
+	position: relative;
+	z-index: 2;
+	width: fit-content;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #343a40;
+	color:white;
+	border-top-left-radius:5px;
+	border-top-right-radius: 5px;
+	margin-left: 10px;
+	outline: none;
+	border: 10px solid #343a40;
+	box-shadow: 	-10px -8px 10px lightgray,
+			10px -8px 10px lightgray;
+}
+
+.content-box {
+	position:relative;
+	z-index:1;
+	box-sizing: border-box;
+	background-color: #e6e6e6;
+	border: 5px solid #343a40;
+	margin: 0px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 0 0 12px 6px #999999;
+	width: 600px;
+	margin-bottom: 40px;
+	padding: 16px;
+}
+
+#end-date {
+	margin-left:80px;
+}
+
+#checkbox-div {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+}
+
+/* Search page submit button */
+input[type=submit] {
+	background-color: #e6e6e6;
+	color: black;
+	border: 5px solid #343a40;
+	padding: 10px;
+	padding-left: 60px;
+	padding-right: 60px;
+	text-align: center;
+	display: block;
+	margin: 0 214px;
+}
+
+input[type=submit]:hover {
+	background-color: #343a40;
+	color: white;
+	cursor: pointer;
+
+}
+
+/*** Results Page ***/
+#results-border-div {
+	position: relative;
+	z-index: 0;
+	width: 600px;
+	height: auto;
+	border: 10px solid #353a40;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 6px #999999;
+	background-color: #e6e6e6;
+	text-align: left;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+hr { 
+    display: block;
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    background-color:transparent;
+}
+

@@ -1,0 +1,59 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'harvest/style.css' %}">
+
+
+<div id="step-title-div">Results</div>
+<div id="results-border-div">
+<p style="text-align:left;">
+	<b>Project Name:</b>
+    <span style="float:right;">
+	    {{ data.results.name }}
+    </span>
+</p>
+<hr/>
+
+<p style="text-align:left;">
+	<b>Number of Projects:</b>
+    <span style="float:right;">
+	    {{ data.results.count }}
+    </span>
+</p>
+<hr/>
+
+{% if data.hours_checkbox %}
+<p style="text-align:left;">
+	<b>Total Hours</b>
+    <span style="float:right;">
+	    {{ data.results.hours }}
+    </span>
+</p>
+<hr/>
+{% endif %}
+
+{% if data.billable_checkbox %}
+<p style="text-align:left;">
+	<b>Total Billable Amount</b>
+    <span style="float:right;">
+	    $ {{ data.results.billable }}
+    </span>
+</p>
+<hr/>
+{% endif %}
+
+{% if data.cost_checkbox %}
+<p style="text-align:left;">
+	<b>Total Cost Amount</b>
+    <span style="float:right;">
+	    $ {{ data.results.cost }}
+    </span>
+</p>
+{% endif %}
+<div>
+
+
+<!-- Iterate option, may be overkill for this project
+{% for key,value in results.items %}
+	<h3>{{ key }} </h3>
+	<h3>{{ value }}</h3>
+	{% endfor %}
+-->
