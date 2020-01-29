@@ -13,7 +13,7 @@ def upload_csv(request, template_name='harvest/upload_csv.html'):
 
     if "GET" == request.method:
         return render(request, "harvest/upload_csv.html", data)
-    
+
     # Django saves file input to request.FILES
     csv_file = request.FILES["csv_file"]
 
@@ -121,13 +121,11 @@ def results(request, template_name='harvest/results.html'):
         data['hours_checkbox'] = post_data.get('hours-checkbox')
         data['billable_checkbox'] = post_data.get('billable-checkbox')
         data['cost_checkbox'] = post_data.get('cost-checkbox')
-        
+
         data['results'] = calculate(data)
-        #results = calculate(data)
-        print(data['results']['hours'])
 
     return render(request, template_name, {'data': data})
-    
+
 
 def calculate(data):
 
@@ -138,7 +136,7 @@ def calculate(data):
                                         WHERE project_code_text = %s 
                                         AND date_text BETWEEN %s AND %s;
                                   ''', [data['project_type'],  data['start_date'], data['end_date']])
-    # By project name
+        # By project name
     else:
         sql = Project.objects.raw('''   SELECT * 
                                         FROM harvest_project 
@@ -146,7 +144,7 @@ def calculate(data):
                                         AND date_text BETWEEN %s AND %s;
                                   ''', [data['project_type'],  data['start_date'], data['end_date']])
 
-    # Calculate and gather results
+        # Calculate and gather results
     results = {}
     results['name'] = data['project_type']
     results['count'] = len(sql)
