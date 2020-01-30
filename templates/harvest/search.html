@@ -19,6 +19,7 @@
 	{% csrf_token %}
 	<div id="step-title-div">2. Select date range</div>
 	<div class="content-box">
+	
 	<!-- Start date picker -->
 	<input name="start-date" id="start-date" placeholder="Start Date" required="true" autocomplete="on">
 	<!-- End date picker -->
@@ -62,14 +63,16 @@
 <script>
     $(function () {
 	    $("#start-date").datepicker({
-		    format:"YYYY-MM-DD",
+		format:"YYYY-MM-DD",
+		//autoshow: true
 	    });
+
 	    $("#end-date").datepicker({
-		    format:"YYYY-MM-DD",
+		format:"YYYY-MM-DD",
+		//autoShow: true
 	    });
     });
 </script>
-
 
 </body>
 </html>
