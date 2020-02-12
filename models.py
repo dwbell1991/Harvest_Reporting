@@ -1,5 +1,10 @@
 from django.db import models
 
+############################################################
+# Name: Project
+# Desc: The Project model simply defines all the necessary 
+# attributes that Harvest's .csv file contains. 
+############################################################
 class Project(models.Model):
     date_text = models.DateField()
     client_text = models.CharField(max_length=50)
